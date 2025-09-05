@@ -1,0 +1,66 @@
+<body>
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 400px; width: 100%">
+      <h3 class="text-center mb-4 fw-bold text-primary">SHOPSY Login</h3>
+
+      <form #Login="ngForm" (submit)="onSubmit(Login.value)">
+        <div class="mb-3">
+          <label for="email" class="form-label fw-semibold">Email address:</label>
+          @if( emailRef.errors?.['email'] && emailRef.touched) {
+          <p class="small text-danger">Please enter valid email</p>
+          } @if( emailRef.errors?.['required'] && emailRef.touched) {
+          <p class="small text-danger">Email is required</p>
+          }
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter your email"
+            required
+            email
+            ngModel
+            #emailRef="ngModel"
+          />
+          <div class="text-danger small"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label fw-semibold">Password:</label>
+             @if(passRef.errors?.['required'] && passRef.touched) {
+          <p class="small text-danger">Required </p>
+          }
+          
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your password"
+            ngModel
+            required
+            #passRef="ngModel"
+          />
+          <div class="text-danger small"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex gap-2">
+        <button type="submit"  [disabled]="Login.invalid" [routerLink]="['']" class="btn btn-primary w-50 rounded-pill">Login</button>
+        <button class="btn btn-primary w-50 rounded-pill m" [routerLink]="['/signup']" >Signup</button>
+         
+        </div>
+
+        <!-- Extra Links -->
+        <div class="text-center">
+          <a href="#" class="text-decoration-none text-secondary">Forgot Password?</a> |
+          <a href="#" class="text-decoration-none text-secondary">Create Account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+<router-outlet/>

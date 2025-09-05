@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.card {
+  background: #fff;
+  border-radius: 1.2rem;
+}
+
+input:focus {
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.6);
+  border-color: #2575fc;
+}

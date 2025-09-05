@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" routerLink="/">ShopX</a>
+
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" routerLink="" (click)="closeMenu()">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/electronics" (click)="closeMenu()">Electronics</a></li>
+            <li><a class="dropdown-item" routerLink="/fashion" (click)="closeMenu()">Fashion</a></li>
+            <li><a class="dropdown-item" routerLink="" (click)="closeMenu()">Home & Kitchen</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="/about" (click)="closeMenu()">About Us</a></li>
+      </ul>
+
+      <a class="btn btn-outline-light me-2" routerLink="/login"><i class="bi bi-person"></i> Login</a>
+      <a class="btn btn-warning" routerLink="xyz"><i class="bi bi-cart"></i> Cart</a>
+    </div>
+  </div>
+</nav>
+
+
+<router-outlet/>
+<app-footer/>
+

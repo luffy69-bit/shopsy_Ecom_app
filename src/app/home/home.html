@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (item of itemList; track item.id) {
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img [src]="item.image" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: contain;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ item.title }}</h5>
+           
+
+           
+            <div class="d-flex align-items-center mb-2">
+              <span class="me-2">⭐ {{ item.rating.rate }} / 5</span>
+              <small class="text-muted">({{ item.rating.count }} reviews)</small>
+            </div>
+
+            
+            <h6 class="text-success mb-3">₹ {{ item.price }}</h6>
+
+            <!-- Button sticks at bottom -->
+            <button class="btn btn-primary mt-auto" routerLink="xyz">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

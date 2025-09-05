@@ -1,0 +1,66 @@
+<body>
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 400px; width: 100%">
+      <h3 class="text-center mb-4 fw-bold text-primary">SHOPSY Signup</h3>
+
+      <form #Signup="ngForm" (submit)="onSubmit( Signup.value)">
+        <div class="mb-3">
+          <label for="email" class="form-label fw-semibold">Email address:</label>
+          @if( emailRef.errors?.['email'] && emailRef.touched) {
+          <p class="small text-danger">Please enter valid email</p>
+          } @if( emailRef.errors?.['required'] && emailRef.touched) {
+          <p class="small text-danger">Email is required</p>
+          }
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter your email"
+            required
+            email
+            ngModel
+            #emailRef="ngModel"
+          />
+          <div class="text-danger small"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label fw-semibold"> Password:</label>
+             @if(passRef.errors?.['required'] && passRef.touched ) {
+          <p class="small text-danger">Required Password length must atleast 6 characters  </p>
+          }
+         
+          
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your password"
+            ngModel
+            required
+            minlength="6"
+            #passRef="ngModel"
+          />
+          <div class="text-danger small"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <div >
+        <button class="btn btn-primary w-100 rounded-pill m"[disabled]="Signup.invalid" [routerLink]="['/login']" >Signup</button>
+         
+        </div>
+
+        <!-- Extra Links -->
+        <div class="text-center">
+          <a href="#" class="text-decoration-none text-secondary">Forgot Password?</a> |
+          <a href="#" class="text-decoration-none text-secondary">Create Account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
