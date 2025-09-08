@@ -27,12 +27,15 @@
 
           <!-- Price -->
           <div class="mb-2">
-            <span class="fw-bold text-success" style="font-size: 16px">₹ {{ item.price +350 }}</span>
+            <span class="fw-bold text-success" style="font-size: 16px"
+              >₹ {{ item.price  }}</span
+            >
           </div>
 
           <!-- CTA -->
-          <button class="btn btn-dark btn-sm mt-auto rounded-pill w-100" routerLink="xyz">
-            🛒 Add to Cart
+
+          <button class="btn btn-dark btn-sm mt-auto rounded-pill w-100" (click)="addToCart(item)">
+            Add to Cart
           </button>
         </div>
       </div>
